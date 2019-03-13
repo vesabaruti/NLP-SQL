@@ -1,4 +1,4 @@
-relationList={
+relationList = {
 	#relations in student database
 	#key		value
 	'student':	'student',

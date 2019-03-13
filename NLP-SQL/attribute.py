@@ -1,14 +1,15 @@
-attributeList={
+attributeList = {
 	#Table=student
 	#key			value
-	'name':			['department.name','student.name'],
-	'studentname':		['student.name'],
+	'name':			['department.name', 'student.name'],
+	'names':		['department.name', 'student.name'],
+	'studentname':	['student.name'],
 	'sex':			['student.sex'],
 	'gender':		['student.sex'],
 	'sid':			['student.sId'],
 	'sId':			['student.sId'],
-	'studentid':		['student.sId'],
-	'id':			['student.sId','department.dId'],
+	'studentid':	['student.sId'],
+	'id':			['student.sId', 'department.dId'],
 	'address':		['student.address'],
 	'lives':		['student.address'],
 	'mobile':		['student.phone'],
@@ -20,17 +21,17 @@ attributeList={
 	'grade':		['student.cgpa'],
 	'pointer':		['student.cgpa'],
 	'pointers':		['student.cgpa'],
-	'percentage':		['student.cgpa'],
+	'percentage':	['student.cgpa'],
 	'marks':		['student.cgpa'],
 	'scored':		['student.cgpa'],
 	'score':		['student.cgpa'],
 	'scores':		['student.cgpa'],
 	#Table=Department
 	#key			value
-	'dId':			['department.dId','student.dId'],
+	'dId':			['department.dId', 'student.dId'],
 	'departmentname':	['department.name'],
 	'studies':		['department.name'],
-	'departmentid':		['department.dId'],
+	'departmentid':	['department.dId'],
 	'building':		['department.buildingCode'],
 	'block':		['department.buildingCode'],
 }
