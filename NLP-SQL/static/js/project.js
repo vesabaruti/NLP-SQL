@@ -16,53 +16,41 @@ $(document).ready(function() {
 	        	}
 	        });
             });
-    $('#closeTerminal').click(function(){
-    	$('#terminalDiv').removeClass('animated bounceInLeft');
-    	$('#terminalDiv').addClass('animated bounceOutLeft');
-    	$('#terminalDiv').animateCss('bounceOutLeft');
-    } );
-    
-    $('#powerOff').click(function(){
-    	$('#terminalDiv').removeClass('animated bounceInLeft');
-    	$('#terminalDiv').addClass('animated bounceOutLeft');
-    	$('#terminalDiv').animateCss('bounceOutLeft');
-    } );
-    $('#minimizeTerminal').click(function(){
-    	$('#terminalDiv').removeClass('animated bounceInLeft');
-    	$('#terminalDiv').addClass('animated bounceOutLeft');
-    	$('#terminalDiv').animateCss('bounceOutLeft');
-    } );
-    $('#showTerminal').click(function(){
-		$( "#Database" ).hide();
-    	$('#terminalDiv').removeClass('animated bounceOutLeft');
-    	$('#terminalDiv').addClass('animated bounceInLeft');
-    	$('#terminalDiv').animateCss('bouncInLeft');
-    } );
 
-    $('#Database').hide(); 
-    $('#openDatabase').click(function(){
-    	$('#Database').show();
-		$( "#showStudentDetails" ).empty();
-		$( "#showDepartmentDetails" ).empty();		
-    	$.ajax({
-			type:"POST",
-			data:{},
-    		url : "showStudentDetails",
-	        success: function(result) {
-				console.log(result);
-				$(result).appendTo('#showStudentDetails');
-	        }	
-	    });
-	    $.ajax({
-			type:"POST",
-			data:{},
-    		url : "showDepartmentDetails",
-	        success: function(result) {
-				console.log(result);
-				$(result).appendTo('#showDepartmentDetails');
-	        }	
-	     });
-    });
+    $('#Database').hide();
 
-    
+
+	$("#toggleDatabase").click(function () {
+		if ($('#Database').is(':visible')) {
+			$('#Database').hide();
+			return
+		}
+	   	if ($('#Database').is(':hidden')) {
+	   		$('#Database').show();
+			$( "#showStudentDetails" ).empty();
+			$( "#showDepartmentDetails" ).empty();
+			$.ajax({
+				type:"POST",
+				data:{},
+				url : "showStudentDetails",
+				success: function(result) {
+					console.log(result);
+					$(result).appendTo('#showStudentDetails');
+				}
+			});
+			$.ajax({
+				type:"POST",
+				data:{},
+				url : "showDepartmentDetails",
+				success: function(result) {
+					console.log(result);
+					$(result).appendTo('#showDepartmentDetails');
+				}
+			 });
+	   }
+	});
+
+	$('#toggleTree').click(function () {
+		$('.tree-image').toggle();
+	})
 });

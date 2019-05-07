@@ -4,29 +4,7 @@ html, body {
   margin:0px;
   padding:0px;
   font-size:18px !important;
-}
-
-.bg-img {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  background: url('../img/bg2.jpg') center center no-repeat;
-  background-size: cover;}
-
-  
-  .bg-img:before {
-    content: '';
-	position: absolute;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	background-image: linear-gradient(to bottom right,#002f4b,#dc4225);
-	opacity: .6; 
-  }
-
-
-
+    font-family: 'Ubuntu', sans-serif;}
 
 .sidenav {
     height: 100%;
@@ -36,8 +14,6 @@ html, body {
     z-index: 1;
     top: 0;
     left: 0;
-    border-right:1px solid grey;
-    background-color: #23031eb3;
     overflow-x: hidden;
     align:center;
     text-align:center;
@@ -69,73 +45,12 @@ html, body {
     color:#f9f5f5;
     font-size:18px;
 }
-input[type=text]:focus {
-    border:0px;
-    outline: none;
-    width: 500px;
-}
-
-.input-cursor{
-	-webkit-animation-name: blinking;  
-    -webkit-animation-duration: 2s; /* Safari 4.0 - 8.0 */
-    animation-name: blinking;
-    animation-duration: 2s;
-    color:transparent;
-    animation-iteration-count: infinite;
-    width:5px;
-}
 
 @keyframes blinking {
     0%   {background-color: #f9f5f5 ;}
     50%  {background-color: transparent;}
 }
-div.terminal {
-	width: 700px;
-	height: 400px;
-	background-color: #01051599;
-	color:#f9f5f5;
-	margin:0px;
-	position: absolute;
-	top:0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	font-family: Ubuntu;
-	margin: auto;
-	border-radius: 10px;
-  overflow-x: hidden;
-}
-.terminal-text {
-	padding: 5px;
-}
-.terminal::-webkit-scrollbar-track
-{
-  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-  border-radius: 10px;
-  background-color: #F5F5F5;
-}
 
-.terminal::-webkit-scrollbar
-{
-  width: 12px;
-  border-radius: 10px;
-  background-color: #F5F5F5;
-}
-
-.terminal::-webkit-scrollbar-thumb
-{
-  border-radius: 10px;
-  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-  background-color: #59595d;
-}
-.close-bar-icon {
-	border-radius: 50%;
-	font-size: 9px;
-	font-weight: 800;
-	padding:5px;
-	background-color: #928c8c;
-	margin-left: 5px;
-}
 
 .table-bordered>tbody>tr>td{
   border: 1px solid #ddd;
@@ -150,23 +65,10 @@ div.close-bar{
 	border-top-right-radius: 7px;
 }
 
-.terminal-text-precommand{
-	color: green;
-	font-weight: 800;
-}
-
 .display-table{
   color: white;
   font-weight: 800;
-  padding: 3px; 
-}
-
-.bg { 
-    background-image: url("bg2.jpg");
-    height: 100%; 
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+  padding: 3px;
 }
 .table .thead-light th {
     color: white !important;
@@ -179,4 +81,101 @@ div.close-bar{
 }
 
 
+.bg {
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #bdc3c7;
+    background: #c850c0;
+    background: -webkit-linear-gradient(45deg, #4158d0, #c850c0);
+    background: -o-linear-gradient(45deg, #4158d0, #c850c0);
+    background: -moz-linear-gradient(45deg, #4158d0, #c850c0);
+    background: linear-gradient(45deg, #4158d0, #c850c0);
+}
+.container {
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+}
 
+.search-bar {
+  max-width: 900px;
+  margin: 0 auto;
+  padding-top: 80px;
+}
+
+.search-bar p {
+  font-size: 16px;
+  color: #fff;
+}
+
+.search-bar .action {
+    text-align: right;
+    margin-bottom: 0;
+}
+
+.search-bar .action a {
+    color: inherit;
+    font-size: 14px;
+}
+
+.search-bar .input {
+  width: 100%;
+  padding: 10px;
+  color: #2c3e50;
+  border: 1px solid #2c3e50;
+  border-radius: 2px;
+}
+
+input[type="text"] {
+  -webkit-box-shadow: 1px 1px 21px 3px rgba(0,0,0,.2);
+-moz-box-shadow: 1px 1px 21px 3px rgba(0,0,0,.2);
+box-shadow: 1px 1px 21px 3px rgba(0,0,0,.2);
+transition: all 0.3s;
+}
+
+input[type=text]:focus {
+    outline: none;
+    -webkit-box-shadow: 1px 1px 21px 3px rgba(0,0,0,0.5);
+-moz-box-shadow: 1px 1px 21px 3px rgba(0,0,0,0.5);
+box-shadow: 1px 1px 21px 3px rgba(0,0,0,0.5);
+}
+
+table {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+thead tr {
+    background-color: #36304a;
+    color: #fff;
+    line-height: 1.2;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f5f5f5;
+}
+
+tbody tr:hover {
+    background-color: #f5f5f5;
+}
+
+tbody tr {
+    color: #808080;
+    line-height: 1.2;
+}
+
+.results span {
+    color: #fff;
+}
+
+.results img {
+    display: block;
+    margin: 0 auto;
+}

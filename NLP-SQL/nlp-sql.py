@@ -161,12 +161,11 @@ def getQuery():
 		encodedData.append(encodedRow)
 
 	#creating html table for  Query result
-	htmlResult = "<span class='terminal-text-precommand'>user@snlp-sql</span>" \
-		"<span class='terminal-text-command'>:~$ : " \
-		"<span class='terminal-text-command'>"+query+"</span>" \
-		"<hr /><table class='table table-bordered table-hover display-table'>"
+	htmlResult = "<span>Query: </span>" \
+		"<code class='query'>"+query+"</code><div><img class='tree-image' src='http://www.freeiconspng.com/uploads/computer-desktop-display-monitor-screen-system-wallpaper-icon--13.png'/>" \
+		"<table class='table'>"
 	#todo: add table head here with column names
-	htmlResult = htmlResult+"<thead class=\"thead-light\"><tr><th scope=\"col\">column1</th>" \
+	htmlResult = htmlResult+"<thead><tr><th scope=\"col\">column1</th>" \
 		"<th scope=\"col\">column2</th>" \
 		"<th scope=\"col\">column3</th>" \
 		"</tr></thead>"
