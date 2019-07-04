@@ -146,6 +146,8 @@ def getQuery():
 	#execute mysql query
 	cursor = mysql.connect().cursor()
 	cursor.execute(query)
+	num_fields = len(cursor.description)
+	field_names = [i[0] for i in cursor.description]
 	data = cursor.fetchall()
 	
 	#converting from unicode to UTF-8
@@ -161,14 +163,15 @@ def getQuery():
 		encodedData.append(encodedRow)
 
 	#creating html table for  Query result
+	headFields = ""
 	htmlResult = "<span>Query: </span>" \
 		"<code class='query'>"+query+"</code><div><img class='tree-image' src='http://www.freeiconspng.com/uploads/computer-desktop-display-monitor-screen-system-wallpaper-icon--13.png'/>" \
 		"<table class='table'>"
 	#todo: add table head here with column names
-	htmlResult = htmlResult+"<thead><tr><th scope=\"col\">column1</th>" \
-		"<th scope=\"col\">column2</th>" \
-		"<th scope=\"col\">column3</th>" \
-		"</tr></thead>"
+	for field in field_names:
+		headFields = headFields + "<th scope=\"col\">" + field + "</th>"
+
+	htmlResult = htmlResult+"<thead><tr>" + headFields + "</tr></thead>"
 	for tableRow in encodedData:
 		htmlResult = htmlResult+"<tr>"
 		for tableCell in tableRow:
