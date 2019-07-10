@@ -1,4 +1,3 @@
-from MySQLdb.compat import unicode
 from flask import Flask, session, render_template, request, jsonify, redirect, url_for
 import main
 
@@ -125,11 +124,10 @@ def adminPanel():
 	for row in data:
 		encodedrow = []
 		for item in row:
-			if isinstance(item, unicode):
 				#encodedrow.append(item.encode("utf-8"))
-				encodedrow.append(item)
-			else:
-				encodedrow.append(item)
+			encodedrow.append(item)
+			#else:
+			#	encodedrow.append(item)
 		encodedData.append(encodedrow)
 	return render_template('admin.html', data=encodedData)
 
@@ -153,11 +151,11 @@ def getQuery():
 	for row in data:
 		encodedRow = []
 		for item in row:
-			if isinstance(item, unicode):
+			#if isinstance(item, unicode):
 				#encodedRow.append(item.encode("utf-8"))
 				encodedRow.append(item)
-			else:
-				encodedRow.append(item)
+			#else:
+			#	encodedRow.append(item)
 		encodedData.append(encodedRow)
 
 	#creating html table for  Query result
@@ -193,11 +191,11 @@ def showStudentDetails():
 	for row in data:
 		encodedRow = []
 		for item in row:
-			if isinstance(item, unicode):
+			#if isinstance(item, unicode):
 				#encodedRow.append(item.encode("utf-8"))
 				encodedRow.append(item)
-			else:
-				encodedRow.append(item)
+			#else:
+			#	encodedRow.append(item)
 		encodedData.append(encodedRow)
 				
 	studentTable = ""
@@ -225,11 +223,11 @@ def showDepartmentDetails():
 	for row in data:
 		encodedRow = []
 		for item in row:
-			if isinstance(item, unicode):
+			#if isinstance(item, unicode):
 				#encodedRow.append(item.encode("utf-8"))
 				encodedRow.append(item)
-			else:
-				encodedRow.append(item)
+			#else:
+			#	encodedRow.append(item)
 		encodedData.append(encodedRow)
 				
 	departmentTable = ""
