@@ -14,7 +14,8 @@ CREATE TABLE student (
  sex CHAR(7),
  address VARCHAR(50), 
  phone CHAR(20),
- cgpa INTEGER
+ cgpa INTEGER,
+ dId INTEGER
 );
 
 

@@ -1,15 +1,16 @@
-import mysql.connector
+#import mysql.connector
+import pymysql.cursors
 
 config = {
   'user': 'root',
   'password': 'admin',
   'host': '127.0.0.1',
   'database': 'nlpproj',
-  'raise_on_warnings': True,
   'charset': 'utf8'
 }
 
-cnx = mysql.connector.connect(**config)
+#cnx = mysql.connector.connect(**config)
+cnx = pymysql.connect(**config)
 #print('Successful connection')
 cursor = cnx.cursor()
 
