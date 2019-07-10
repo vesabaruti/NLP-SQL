@@ -26,9 +26,9 @@ CREATE TABLE department (
 );
 
 #Create users table
-CREATE TABLES users )
-	userid  VARCHAR(30) PRIMARY KEY
-	password VARCHAR(30)
-	access INTEGER
+CREATE TABLE users (
+	userid  VARCHAR(30) PRIMARY KEY,
+	password VARCHAR(30),
+	access INTEGER,
 	name VARCHAR(30)
 );
