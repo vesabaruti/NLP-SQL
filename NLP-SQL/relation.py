@@ -3,6 +3,6 @@ relationList = {
 	#key		value
 	'student':	'student',
 	'department':	'department',
-	'students':	'student',
-	'departments':	'department'
+	#'students':	'student',
+	#'departments':	'department'
 }

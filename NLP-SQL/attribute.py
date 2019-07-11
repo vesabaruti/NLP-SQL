@@ -11,7 +11,7 @@ attributeList = {
 	'studentid':	['student.sId'],
 	'id':			['student.sId', 'department.dId'],
 	'address':		['student.address'],
-	'lives':		['student.address'],
+	'live':		['student.address'],
 	'mobile':		['student.phone'],
 	'landline':		['student.phone'],
 	'phone':		['student.phone'],

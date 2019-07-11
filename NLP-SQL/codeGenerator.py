@@ -3,6 +3,9 @@ import relation as rel
 import attribute as atr
 import schema as sch
 from nltk.corpus import stopwords
+from nltk.stem import PorterStemmer
+
+ps = PorterStemmer()
 
 
 def queryGenerator(tagged, keywords, numerals, query):
@@ -12,10 +15,12 @@ def queryGenerator(tagged, keywords, numerals, query):
 
     # Create table[] , attribute[], special[]
     for word in tagged:
-        if word[0] in rel.relationList:
-            table.append(rel.relationList[word[0]])
-        elif word[0] in atr.attributeList:
-            for temp in atr.attributeList[word[0]]:
+        if word[0] in rel.relationList or ps.stem(word[0]) in rel.relationList:
+            table.append(rel.relationList[word[0]]) if word[0] in rel.relationList else table.append(rel.relationList[ps.stem(word[0])])
+            #TODO: check if table has default attributes to show, and append them to (attribute)
+        elif word[0] in atr.attributeList or ps.stem(word[0]) in atr.attributeList:
+            attributes = atr.attributeList[word[0]] if word[0] in atr.attributeList else atr.attributeList[ps.stem(word[0])]
+            for temp in attributes:
                 attribute.append(temp)
         elif word[0] not in numerals:
             special.append(word[0])
