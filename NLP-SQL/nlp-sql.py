@@ -138,7 +138,6 @@ def getQuery():
     query = request.form['query']
     print(query)
     # processQuery converts the input query to mysql query
-    # todo: return column names to show in result table
     query, columns = main.processQuery(query)
 
     # execute mysql query
@@ -163,7 +162,6 @@ def getQuery():
                  "<span class='terminal-text-command'>:~$ : " \
                  "<span class='terminal-text-command'>" + query + "</span>" \
                  "<hr /><table class='table table-bordered table-hover display-table'>"
-    # todo: add table head here with column names
     #resultColumns = ["<th scope=\"col\">" + i[0] + "</th>" for i in cursor.description]
     resultColumns = ["<th scope=\"col\">" + i.replace(".", " ").capitalize() + "</th>" for i in columns]
     htmlResult = htmlResult + "<thead class=\"thead-light\">" \
