@@ -6,3 +6,8 @@ relationList = {
 	#'students':	'student',
 	#'departments':	'department'
 }
+
+relationDefaultAttributeList = {
+	'student': 'student.name',
+	'department': 'department.name',
+}

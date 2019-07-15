@@ -139,7 +139,7 @@ def getQuery():
     print(query)
     # processQuery converts the input query to mysql query
     # todo: return column names to show in result table
-    query = main.processQuery(query)
+    query, columns = main.processQuery(query)
 
     # execute mysql query
     cursor = mysql.connect().cursor()
@@ -162,12 +162,12 @@ def getQuery():
     htmlResult = "<span class='terminal-text-precommand'>user@snlp-sql</span>" \
                  "<span class='terminal-text-command'>:~$ : " \
                  "<span class='terminal-text-command'>" + query + "</span>" \
-                                                                  "<hr /><table class='table table-bordered table-hover display-table'>"
+                 "<hr /><table class='table table-bordered table-hover display-table'>"
     # todo: add table head here with column names
-    htmlResult = htmlResult + "<thead class=\"thead-light\"><tr><th scope=\"col\">column1</th>" \
-                              "<th scope=\"col\">column2</th>" \
-                              "<th scope=\"col\">column3</th>" \
-                              "</tr></thead>"
+    #resultColumns = ["<th scope=\"col\">" + i[0] + "</th>" for i in cursor.description]
+    resultColumns = ["<th scope=\"col\">" + i.replace(".", " ").capitalize() + "</th>" for i in columns]
+    htmlResult = htmlResult + "<thead class=\"thead-light\">" \
+                              "<tr>" + ''.join(resultColumns) + "</tr></thead>"
     for tableRow in encodedData:
         htmlResult = htmlResult + "<tr>"
         for tableCell in tableRow:

@@ -11,6 +11,6 @@ def processQuery(query):
 	tokens, keywords, tagged, numerals = wI.wordIdentifier(query)
 	
 	#queryGenerator forms the Sql query 
-	sqlQuery = cG.queryGenerator(tagged, keywords, numerals, tokens)
-	return sqlQuery
+	sqlQuery, columns = cG.queryGenerator(tagged, keywords, numerals, tokens)
+	return sqlQuery, columns
 

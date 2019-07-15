@@ -17,11 +17,12 @@ def queryGenerator(tagged, keywords, numerals, query):
     for word in tagged:
         if word[0] in rel.relationList or ps.stem(word[0]) in rel.relationList:
             table.append(rel.relationList[word[0]]) if word[0] in rel.relationList else table.append(rel.relationList[ps.stem(word[0])])
-            #TODO: check if table has default attributes to show, and append them to (attribute)
+            attribute.append(rel.relationDefaultAttributeList[word[0]]) if word[0] in rel.relationList else attribute.append(rel.relationDefaultAttributeList[ps.stem(word[0])])
         elif word[0] in atr.attributeList or ps.stem(word[0]) in atr.attributeList:
             attributes = atr.attributeList[word[0]] if word[0] in atr.attributeList else atr.attributeList[ps.stem(word[0])]
             for temp in attributes:
-                attribute.append(temp)
+                if temp not in attribute:
+                    attribute.append(temp)
         elif word[0] not in numerals:
             special.append(word[0])
 
@@ -197,4 +198,4 @@ def queryGenerator(tagged, keywords, numerals, query):
 
     print('Final Query')
     print(execQuery)
-    return execQuery
+    return execQuery, attribute
