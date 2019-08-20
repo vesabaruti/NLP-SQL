@@ -1,3 +1,4 @@
+from MySQLdb.compat import unicode
 from flask import Flask, session, render_template, request, jsonify, redirect, url_for
 import main
 
@@ -150,11 +151,11 @@ def getQuery():
     for row in data:
         encodedRow = []
         for item in row:
-            # if isinstance(item, unicode):
-            # encodedRow.append(item.encode("utf-8"))
-            encodedRow.append(item)
-        # else:
-        #	encodedRow.append(item)
+            if isinstance(item, unicode):
+                #encodedRow.append(item.encode("utf-8"))
+                encodedRow.append(item)
+            else:
+                encodedRow.append(item)
         encodedData.append(encodedRow)
 
     # creating html table for  Query result
@@ -181,7 +182,7 @@ def getQuery():
 @nlpsql.route('/showStudentDetails', methods=['POST'])
 def showStudentDetails():
     query = "select * from student"
-    query = main.processQuery(query)
+    #query = main.processQuery(query)
     cursor = mysql.connect().cursor()
     cursor.execute(query)
     data = cursor.fetchall()
@@ -189,12 +190,12 @@ def showStudentDetails():
     for row in data:
         encodedRow = []
         for item in row:
-            # if isinstance(item, unicode):
-            # encodedRow.append(item.encode("utf-8"))
-            encodedRow.append(item)
-        # else:
-        #	encodedRow.append(item)
-        encodedData.append(encodedRow)
+            if isinstance(item, unicode):
+                encodedRow.append(item.encode("utf-8"))
+                encodedRow.append(item)
+            else:
+                encodedRow.append(item)
+                encodedData.append(encodedRow)
 
     studentTable = ""
     for row in encodedData:
@@ -213,7 +214,7 @@ def showStudentDetails():
 @nlpsql.route('/showDepartmentDetails', methods=['POST'])
 def showDepartmentDetails():
     query = "select * from department"
-    query = main.processQuery(query)
+    #query = main.processQuery(query)
     cursor = mysql.connect().cursor()
     cursor.execute(query)
     data = cursor.fetchall()
@@ -221,12 +222,12 @@ def showDepartmentDetails():
     for row in data:
         encodedRow = []
         for item in row:
-            # if isinstance(item, unicode):
-            # encodedRow.append(item.encode("utf-8"))
-            encodedRow.append(item)
-        # else:
-        #	encodedRow.append(item)
-        encodedData.append(encodedRow)
+            if isinstance(item, unicode):
+                encodedRow.append(item.encode("utf-8"))
+                encodedRow.append(item)
+            else:
+                encodedRow.append(item)
+                encodedData.append(encodedRow)
 
     departmentTable = ""
     for row in encodedData:
