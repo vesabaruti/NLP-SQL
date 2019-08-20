@@ -1,6 +1,6 @@
 mysql
 flask
-nltk==3.3
+nltk
 flask-mysql
 mysql-connector-python
 PyMySQL
