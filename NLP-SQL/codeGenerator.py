@@ -17,7 +17,8 @@ def queryGenerator(tagged, keywords, numerals, query):
     for word in tagged:
         if word[0] in rel.relationList or ps.stem(word[0]) in rel.relationList:
             table.append(rel.relationList[word[0]]) if word[0] in rel.relationList else table.append(rel.relationList[ps.stem(word[0])])
-            attribute.append(rel.relationDefaultAttributeList[word[0]]) if word[0] in rel.relationList else attribute.append(rel.relationDefaultAttributeList[ps.stem(word[0])])
+            attribute.append(rel.relationDefaultAttributeList[word[0]]) if word[0] in rel.relationList \
+                else attribute.append(rel.relationDefaultAttributeList[ps.stem(word[0])])
         elif word[0] in atr.attributeList or ps.stem(word[0]) in atr.attributeList:
             attributes = atr.attributeList[word[0]] if word[0] in atr.attributeList else atr.attributeList[ps.stem(word[0])]
             for temp in attributes:
