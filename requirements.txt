@@ -5,3 +5,5 @@ flask-mysql
 mysql-connector-python
 PyMySQL
 mysqlclient
+stanfordnlp
+graphviz

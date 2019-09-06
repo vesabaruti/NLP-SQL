@@ -191,7 +191,7 @@ def showStudentDetails():
         encodedRow = []
         for item in row:
             if isinstance(item, unicode):
-                encodedRow.append(item.encode("utf-8"))
+                #encodedRow.append(item.encode("utf-8"))
                 encodedRow.append(item)
             else:
                 encodedRow.append(item)
@@ -223,7 +223,7 @@ def showDepartmentDetails():
         encodedRow = []
         for item in row:
             if isinstance(item, unicode):
-                encodedRow.append(item.encode("utf-8"))
+                #encodedRow.append(item.encode("utf-8"))
                 encodedRow.append(item)
             else:
                 encodedRow.append(item)
