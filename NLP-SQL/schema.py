@@ -9,5 +9,5 @@ tableAttributeList = {
 	'student.cgpa': 'student',
 	'student.phone': 'student',
 	'student.dId': 'student',
-	'student.sId': 'student'
+	'student.sId': 'student',
 }
